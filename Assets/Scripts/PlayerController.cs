@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
     private Rigidbody m_rb;
+    public float speed = 10.0F;
+    public float max_speed = 12.0F;
 
 	// Use this for initialization
 	void Start () {
@@ -22,9 +24,17 @@ public class PlayerController : MonoBehaviour {
          * force to our player object 
          */
 
-         // Get user input
+        // Get user input
         float movement = Input.GetAxis("Horizontal");
         // Add force
-        m_rb.AddForce(new Vector3(movement, 0.0F, 0.0F));
+        m_rb.AddForce(new Vector3(movement * speed,
+            0.0F, 0.0F));
+        /* set velocity so that it'll never be greater
+         * than 12.0F 
+         */
+        m_rb.velocity = new Vector3(
+            Mathf.Clamp(m_rb.velocity.x, -max_speed, max_speed), 
+            m_rb.velocity.y, m_rb.velocity.z
+            );
     }
 }
