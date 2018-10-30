@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour {
     public int user_layer_platform;
     private float get_axis_horizontal = 0.0F;
     private bool get_key_down_space = false;
+    public string pickup_tag;
+
 
     // Use this for initialization
     void Start () {
@@ -50,6 +52,7 @@ public class PlayerController : MonoBehaviour {
         if (get_key_down_space && isGrounded())
             m_rb.AddForce(0.0F, jump_height, 0.0F);
     }
+
     bool isGrounded()
     {
         int platform_layer = 1 << user_layer_platform;
@@ -58,6 +61,12 @@ public class PlayerController : MonoBehaviour {
             Vector3.down,
             collider_radius + grounded_epsilon,
             platform_layer);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag(pickup_tag))
+            other.gameObject.SetActive(false);
     }
 }
 
