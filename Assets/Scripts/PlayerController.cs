@@ -6,12 +6,13 @@ public class PlayerController : MonoBehaviour {
     private Rigidbody m_rb;
     public float speed = 10.0F;
     public float max_speed = 12.0F;
-    public float jump_height = 500.0F;
+    float jump_height = 450.0F;
     private Collider m_collider;
-    private float collider_radius;
-    private float grounded_epsilon = 0.5F;
+    private float collider_radius = 0.0F;
+    public float grounded_epsilon = 0.05F;
     public int user_layer_platform;
-
+    private float get_axis_horizontal = 0.0F;
+    private bool get_key_down_space = false;
 
     // Use this for initialization
     void Start () {
@@ -22,7 +23,8 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        get_axis_horizontal = Input.GetAxis("Horizontal");
+        get_key_down_space = Input.GetKey(KeyCode.Space);
 	}
 
     private void FixedUpdate()
@@ -45,15 +47,18 @@ public class PlayerController : MonoBehaviour {
             m_rb.velocity.y, m_rb.velocity.z
             );
         //jumping mechanic
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded())
+        if (get_key_down_space && isGrounded())
             m_rb.AddForce(0.0F, jump_height, 0.0F);
     }
+    bool isGrounded()
+    {
+        int platform_layer = 1 << user_layer_platform;
+        return Physics.Raycast(
+            transform.position,
+            Vector3.down,
+            collider_radius + grounded_epsilon,
+            platform_layer);
+    }
 }
-bool isGrounded() {
-    int platform_layer = << user_layer_platform;
-    return Physics.Raycast(
-        transform.position,
-        Vector3.down,
-        collider_radius + grounded_epsilon,
-        platform_layer)
-}
+
+
