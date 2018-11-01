@@ -41,9 +41,6 @@ public class PlayerController : MonoBehaviour {
         // Add force
         m_rb.AddForce(new Vector3(movement * speed,
             0.0F, 0.0F));
-        /* set velocity so that it'll never be greater
-         * than 12.0F 
-         */
         m_rb.velocity = new Vector3(
             Mathf.Clamp(m_rb.velocity.x, -max_speed, max_speed), 
             m_rb.velocity.y, m_rb.velocity.z
