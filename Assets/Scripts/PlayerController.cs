@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour {
     private Rigidbody m_rb;
     public float speed = 10.0F;
     public float max_speed = 12.0F;
-    float jump_height = 450.0F;
+    float jump_height = 400.0F;
     private Collider m_collider;
     private float collider_radius = 0.0F;
     public float grounded_epsilon = 0.05F;

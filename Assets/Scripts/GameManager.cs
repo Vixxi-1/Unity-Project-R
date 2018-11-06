@@ -7,7 +7,7 @@ using UnityEngine.UI;
 // betweeen scene loads.
 public class PersistGM
 {
-    static public int score = 0;
+    static public int score = 10;
 }
 
 public class GameManager : MonoBehaviour
@@ -22,12 +22,13 @@ public class GameManager : MonoBehaviour
     void OnDestroy()
     {
         // TODO 441: Store the GameManager's score into PersistGM
+        PersistGM.score = score;
     } 
 
     void Start()
     {
         // TODO 441: Restore the GameManager's score from PersistGM
-
+        score = PersistGM.score;
         // This makes it so that the score is printed as 0 to start with.
         update_score_ui();
         clear_notice_ui();
@@ -148,5 +149,8 @@ public class GameManager : MonoBehaviour
     {
         ui_center.text = "";
     }
-
+    private void OnTriggerEnter(Collider other)
+    {
+       
+    }
 }
