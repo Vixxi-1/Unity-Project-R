@@ -5,16 +5,18 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
     private Rigidbody m_rb;
     public float speed = 10.0F;
-    public float max_speed = 12.0F;
-    float jump_height = 400.0F;
+    public float max_speed = 10.0F;
+    float jump_height = 375.0F;
     private Collider m_collider;
     private float collider_radius = 0.0F;
     public float grounded_epsilon = 0.05F;
     public int user_layer_platform;
     private float get_axis_horizontal = 0.0F;
     private bool get_key_down_space = false;
+    public GameManager gm;
     public string pickup_tag;
-
+    public string livebox_tag;
+    
 
     // Use this for initialization
     void Start () {
@@ -63,7 +65,19 @@ public class PlayerController : MonoBehaviour {
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag(pickup_tag))
+        {
             other.gameObject.SetActive(false);
+            gm.score += 10; // pickup is worth ## points
+        }     
+    }
+
+    // End Game Mechanic
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag(livebox_tag))
+        {
+            gm.game_over();
+        }
     }
 }
 
