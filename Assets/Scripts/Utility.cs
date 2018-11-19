@@ -13,10 +13,10 @@ public class Utility {
         Vector3 startingPos = obj.transform.position;
         while (elapsedTime < seconds)
         {
-            // TODO 441: Move our position to some lerped vector between startingPosition and end based on the elapsed time
-            rb.MovePosition(startingPos); // TODO 441: REMOVE THIS LINE and uncomment the 2 lines below
-            //Vector3 lerped_vector = Vector3.Lerp(...);  
-            //rb.MovePosition(lerped_vector);
+            /* TODO 441: Move our position to some lerped vector between 
+               startingPosition and end based on the elapsed time */
+            Vector3 lerped_vector = Vector3.Lerp(...);  
+            rb.MovePosition(lerped_vector);
 
             // Sync up with frame rate
             elapsedTime += Time.deltaTime;

@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour {
     public GameManager gm;
     public string pickup_tag;
     public string livebox_tag;
-    
+    public string finish_tag;
 
     // Use this for initialization
     void Start () {
@@ -68,8 +68,16 @@ public class PlayerController : MonoBehaviour {
         {
             other.gameObject.SetActive(false);
             gm.score += 10; // pickup is worth ## points
-        }     
+        }
+
+        if (other.gameObject.CompareTag(finish_tag))
+        {
+            gm.score += 500;
+            gm.level_finished();
+        }
+       
     }
+}
 
     // End Game Mechanic
     private void OnTriggerExit(Collider other)
@@ -78,7 +86,8 @@ public class PlayerController : MonoBehaviour {
         {
             gm.game_over();
         }
-    }
+
+
 }
 
 
