@@ -1,8 +1,9 @@
-﻿using System.Collections;
+﻿  using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : MonoBehaviour
+{
     private Rigidbody m_rb;
     public float speed = 10.0F;
     public float max_speed = 10.0F;
@@ -19,17 +20,19 @@ public class PlayerController : MonoBehaviour {
     public string finish_tag;
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         m_rb = GetComponent<Rigidbody>();
         m_collider = GetComponent<Collider>();
         collider_radius = m_collider.bounds.extents.y;
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         get_axis_horizontal = Input.GetAxis("Horizontal");
         get_key_down_space = Input.GetKey(KeyCode.Space);
-	}
+    }
 
     private void FixedUpdate()
     {
@@ -39,12 +42,12 @@ public class PlayerController : MonoBehaviour {
          */
 
         // Get user input
-        float movement = Input.GetAxis("Horizontal");
+        float movement = get_axis_horizontal;
         // Add force
         m_rb.AddForce(new Vector3(movement * speed,
             0.0F, 0.0F));
         m_rb.velocity = new Vector3(
-            Mathf.Clamp(m_rb.velocity.x, -max_speed, max_speed), 
+            Mathf.Clamp(m_rb.velocity.x, -max_speed, max_speed),
             m_rb.velocity.y, m_rb.velocity.z
             );
         //jumping mechanic
@@ -75,9 +78,8 @@ public class PlayerController : MonoBehaviour {
             gm.score += 500;
             gm.level_finished();
         }
-       
+
     }
-}
 
     // End Game Mechanic
     private void OnTriggerExit(Collider other)
@@ -87,7 +89,8 @@ public class PlayerController : MonoBehaviour {
             gm.game_over();
         }
 
-
+    }
 }
+
 
 
