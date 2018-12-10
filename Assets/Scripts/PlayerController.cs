@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     public string pickup_tag;
     public string livebox_tag;
     public string finish_tag;
+    public string obstacle_tag;
 
     // Use this for initialization
     void Start()
@@ -67,6 +68,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        //make pickups pickable
         if (other.gameObject.CompareTag(pickup_tag))
         {
             other.gameObject.SetActive(false);
@@ -79,6 +81,12 @@ public class PlayerController : MonoBehaviour
             gm.level_finished();
         }
 
+        //make obstacles "DEADLY"
+        if (other.gameObject.CompareTag(obstacle_tag))
+        {
+            gm.game_over();
+            gameObject.SetActive(false);
+        }
     }
 
     // End Game Mechanic
