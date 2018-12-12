@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿
+using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -75,7 +76,7 @@ public class GameManager : MonoBehaviour
                 update_notice_ready_set_go();
             }
             else {
-                Debug.Log("Finished a level! Congratulations!");
+                Debug.Log("Finished a level! HoOoray!");
                 Invoke("next_level", 2);
                 update_notice_ui("Level Complete!");
             }
