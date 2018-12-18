@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3315350}
   - component: {fileID: 6559666}
   - component: {fileID: 114000013382768090}
+  - component: {fileID: 114805188372353970}
   m_Layer: 0
   m_Name: LiveBox
   m_TagString: live_box
@@ -44,7 +45,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 169434}
   m_LocalRotation: {x: 0.21643963, y: 0, z: 0, w: 0.976296}
-  m_LocalPosition: {x: 0, y: 0.2, z: -3}
+  m_LocalPosition: {x: -0.009, y: 0.233, z: -2.85}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 498082}
@@ -88,7 +89,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 15
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -166,5 +167,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f09957c6ddfcd744fb464d0f15592407, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: {x: 0, y: -1, z: 0}
-  speed: 0.03
+  direction: {x: 0, y: 1, z: 0}
+  speed: 0.0075
+--- !u!114 &114805188372353970
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 158628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d543cd38d27a07459f59cc216eb0f72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toFollow: {fileID: 0}
+  follow_x: 1
+  follow_y: 1
+  follow_z: 0
