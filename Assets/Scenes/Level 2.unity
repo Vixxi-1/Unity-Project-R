@@ -1301,7 +1301,7 @@ Prefab:
     - target: {fileID: 114000011533192820, guid: 08810b0506bf6c34a8b7b1a70c38c42a,
         type: 2}
       propertyPath: transformation_time
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 471562, guid: 08810b0506bf6c34a8b7b1a70c38c42a, type: 2}
       propertyPath: m_LocalScale.x
@@ -1935,6 +1935,11 @@ Prefab:
       propertyPath: toFollow
       value: 
       objectReference: {fileID: 1463085018}
+    - target: {fileID: 114805188372353970, guid: 266691f1c3c61b54d950e59742fc74b3,
+        type: 2}
+      propertyPath: follow_y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 266691f1c3c61b54d950e59742fc74b3, type: 2}
   m_IsPrefabAsset: 0
@@ -2319,7 +2324,7 @@ Prefab:
     - target: {fileID: 114000011533192820, guid: 08810b0506bf6c34a8b7b1a70c38c42a,
         type: 2}
       propertyPath: platform_movement.y
-      value: 15
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 114000011533192820, guid: 08810b0506bf6c34a8b7b1a70c38c42a,
         type: 2}
@@ -2353,6 +2358,11 @@ Prefab:
     - target: {fileID: 471562, guid: 08810b0506bf6c34a8b7b1a70c38c42a, type: 2}
       propertyPath: m_LocalPosition.y
       value: 0.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011533192820, guid: 08810b0506bf6c34a8b7b1a70c38c42a,
+        type: 2}
+      propertyPath: transformation_time
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08810b0506bf6c34a8b7b1a70c38c42a, type: 2}
